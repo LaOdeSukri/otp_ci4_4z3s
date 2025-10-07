@@ -1,0 +1,14 @@
+CREATE TABLE `users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `nama` VARCHAR(100) DEFAULT NULL,
+  `password` VARCHAR(255) DEFAULT NULL,
+  `otp_code` VARCHAR(10) DEFAULT NULL,
+  `otp_expired` DATETIME DEFAULT NULL,
+  `role` ENUM('admin','operator','user') DEFAULT 'user',
+  `is_active` TINYINT(1) DEFAULT 1,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
